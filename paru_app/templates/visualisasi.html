@@ -12,63 +12,63 @@
   <!-- jQuery dan DataTables JS -->
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
-
 </head>
+
 <body>
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container">
-          <a class="navbar-brand" href="/">
-            <i class="fas fa-home me-2"></i>Home
-          </a>
-          <div class="collapse navbar-collapse">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item"><a class="nav-link" href="/prediksi">Prediksi</a></li>
-              <li class="nav-item"><a class="nav-link active" href="/visualisasi">Visualisasi</a></li>
-              <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Model</a></li>
-            </ul>
-          </div>
+      <div class="container">
+        <a class="navbar-brand" href="/">
+          <i class="fas fa-home me-2"></i>Home
+        </a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="/prediksi">Prediksi</a></li>
+            <li class="nav-item"><a class="nav-link active" href="/visualisasi">Visualisasi</a></li>
+            <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Model</a></li>
+          </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
 
   <div class="container mt-5">
     <h2 class="text-center mb-4">Riwayat Hasil Prediksi</h2>
 
     <div class="mt-5 card p-4 shadow-sm">
-        <div class="table-container">
-          <table class="table table-bordered table-striped" id="riwayatTable">
-            <thead class="table-light">
-              <tr id="tableHead"></tr>
-            </thead>
-            <tbody id="tableBody"></tbody>
-          </table>
-        </div>
+      <div class="table-container">
+        <table class="table table-bordered table-striped" id="riwayatTable">
+          <thead class="table-light">
+            <tr id="tableHead"></tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <br><br><br>
+    <h2 class="text-center mb-4">Visualisasi</h2>
+    <br>
+
+    <!-- Dropdown dan Bar Chart Dinamis -->
+    <div class="card p-4 shadow-sm">
+      <h5 class="mb-3 text-center">Distribusi Berdasarkan Kategori</h5>
+
+      <div class="mb-3">
+        <label for="kategoriSelect" class="form-label">Pilih Kategori:</label>
+        <select class="form-select" id="kategoriSelect">
+          <option value="usia_tua">Usia</option>
+          <option value="jenis_kelamin_wanita">Jenis Kelamin</option>
+          <option value="merokok_pasif">Merokok</option>
+          <option value="bekerja_ya">Bekerja</option>
+          <option value="aktivitas_begadang_ya">Aktivitas Begadang</option>
+          <option value="aktivitas_olahraga_sering">Aktivitas Olahraga</option>
+          <option value="asuransi_tidak">Asuransi</option>
+          <option value="penyakit_bawaan_tidak">Penyakit Bawaan</option>
+        </select>
       </div>
 
-      <br><br><br>
-      <h2 class="text-center mb-4">Visualisasi</h2>
-      <br>
-
-     <!-- Dropdown dan Bar Chart Dinamis -->
-     <div class="card p-4 shadow-sm">
-        <h5 class="mb-3 text-center">Distribusi Berdasarkan Kategori</h5>
-  
-        <div class="mb-3">
-          <label for="kategoriSelect" class="form-label">Pilih Kategori:</label>
-          <select class="form-select" id="kategoriSelect">
-            <option value="usia_tua">Usia</option>
-            <option value="jenis_kelamin_wanita">Jenis Kelamin</option>
-            <option value="merokok_pasif">Merokok</option>
-            <option value="bekerja_ya">Bekerja</option>
-            <option value="aktivitas_begadang_ya">Aktivitas Begadang</option>
-            <option value="aktivitas_olahraga_sering">Aktivitas Olahraga</option>
-            <option value="asuransi_tidak">Asuransi</option>
-            <option value="penyakit_bawaan_tidak">Penyakit Bawaan</option>
-          </select>
-        </div>
-  
-        <canvas id="kategoriChart" height="100"></canvas>
-      </div>
+      <canvas id="kategoriChart" height="100"></canvas>
+    </div>
 
     <br><br>
 
@@ -77,8 +77,9 @@
     <div style="max-width: 300px; margin: 0 auto;">
         <canvas id="pieChart"></canvas>
         <p class="mt-2" id="pie-desc"></p>
+      </div>
     </div>
-    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="bg-dark text-white py-4">
