@@ -9,7 +9,6 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 </head>
 <body>
-  <!-- Navigasi -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="/">
@@ -19,13 +18,12 @@
         <ul class="navbar-nav ms-auto">
           <li class="nav-item"><a class="nav-link active" href="/prediksi">Prediksi</a></li>
           <li class="nav-item"><a class="nav-link" href="/visualisasi">Visualisasi</a></li>
-          <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Model</a></li>
+          <li class="nav-item"><a class="nav-link" href="/tentang">Tentang Aplikasi</a></li>
         </ul>
       </div>
     </div>
   </nav>
 
-  <!-- Form Prediksi -->
   <div class="container mt-5">
     <h2 class="text-center mb-4">Form Prediksi Risiko Penyakit Paru-Paru</h2>
     <form id="predict-form">
@@ -34,8 +32,8 @@
           <div class="mb-3">
             <label>Usia</label>
             <select name="usia_tua" class="form-select">
-              <option value="0">Muda</option>
-              <option value="1">Tua</option>
+              <option value="0">15-35 Tahun</option>
+              <option value="1">>35 Tahun</option>
             </select>
           </div>
           <div class="mb-3">
@@ -46,21 +44,21 @@
             </select>
           </div>
           <div class="mb-3">
-            <label>Merokok</label>
+            <label>Apakah Anda Merokok?</label>
             <select name="merokok_pasif" class="form-select">
               <option value="0">Aktif</option>
               <option value="1">Pasif</option>
             </select>
           </div>
           <div class="mb-3">
-            <label>Bekerja</label>
+            <label>Apakah Anda Bekerja?</label>
             <select name="bekerja_ya" class="form-select">
               <option value="0">Tidak</option>
               <option value="1">Ya</option>
             </select>
           </div>
           <div class="mb-3">
-            <label>Rumah Tangga</label>
+            <label>Apakah Anda Sudah Berumah Tangga?</label>
             <select name="rumah_tangga_ya" class="form-select">
               <option value="0">Tidak</option>
               <option value="1">Ya</option>
@@ -70,28 +68,28 @@
 
         <div class="col-md-6">
           <div class="mb-3">
-            <label>Begadang</label>
+            <label>Apakah Anda Sering Begadang?</label>
             <select name="aktivitas_begadang_ya" class="form-select">
-              <option value="0">Tidak</option>
-              <option value="1">Ya</option>
+              <option value="0">Jarang (<3x/minggu) </option>
+              <option value="1">Sering (≥ 3x/minggu) </option>
             </select>
           </div>
           <div class="mb-3">
-            <label>Olahraga</label>
+            <label>Apakah Anda Sering Olahraga</label>
             <select name="aktivitas_olahraga_sering" class="form-select">
-              <option value="0">Jarang</option>
-              <option value="1">Sering</option>
+              <option value="0">Jarang ( <3x/minggu) </option>
+              <option value="1">Sering (≥3x/minggu) </option>
             </select>
           </div>
           <div class="mb-3">
-            <label>Asuransi</label>
+            <label>Apakah Anda Memiliki Asuransi Kesehatan?</label>
             <select name="asuransi_tidak" class="form-select">
               <option value="0">Ada</option>
               <option value="1">Tidak</option>
             </select>
           </div>
           <div class="mb-3">
-            <label>Penyakit Bawaan</label>
+            <label>Apakah Anda Memiliki Penyakit Bawaan?</label>
             <select name="penyakit_bawaan_tidak" class="form-select">
               <option value="0">Ada</option>
               <option value="1">Tidak</option>
@@ -103,7 +101,6 @@
     </form>
   </div>
 
-  <!-- Modal Hasil -->
   <div class="modal fade" id="resultModal" tabindex="-1" aria-labelledby="resultModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
@@ -119,8 +116,8 @@
       </div>
     </div>
   </div>
+  <br>
 
-  <!-- Footer -->
   <footer class="bg-dark text-white py-4">
     <div class="container">
       <div class="text-center">
@@ -129,7 +126,6 @@
     </div>
   </footer>
 
-  <!-- JS -->
   <script src="static/bootstrap-5.3.5-dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.getElementById('predict-form').addEventListener('submit', async function (e) {
@@ -164,9 +160,8 @@
           explainEl.textContent = "Pasien tidak menunjukkan risiko signifikan. Tetap jaga kesehatan!";
         }
 
-        probEl.textContent = result.probability.toFixed(4);
+        probEl.textContent = (result.probability*100).toFixed(2) + "%";
 
-        // Tampilkan modal
         const resultModal = new bootstrap.Modal(document.getElementById('resultModal'));
         resultModal.show();
 

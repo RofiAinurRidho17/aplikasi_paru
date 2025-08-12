@@ -1,1 +1,0 @@
-web: gunicorn paru_app.app:app
